@@ -1,13 +1,10 @@
-@import '../styles/color-constants';
-// @import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap');
+@import '../../styles/color-constants';
 
 .brand-icon {
   color: $brand-color;
 }
 
-.navbar-brand {
-  font-family: 'Avenir';
-}
+
 
 nav {
   color: white;
