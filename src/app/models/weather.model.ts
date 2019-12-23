@@ -1,14 +1,14 @@
 
 
 export interface DayWeatherForecast {
-    date: Date;
-    icon: number;
-    minTemp: number;
-    maxTemp: number;
+    Date: Date;
+    Icon: number;
+    MinTemp: number;
+    MaxTemp: number;
 }
 
 export interface HourWeatherForecast {
-    time: Date;
-    icon: number;
-    temperature: number;
+    Time: Date;
+    Icon: number;
+    Temperature: number;
 }

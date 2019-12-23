@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AutoComplete, TwelveHourForecast, FiveDayForecast } from './fake-api'
+import { AutoComplete, TwelveHourForecast, FiveDayForecast } from './fake-api';
 import { DayWeatherForecast, HourWeatherForecast } from 'app/models/weather.model';
 
 @Injectable({
@@ -11,18 +11,26 @@ export class WeatherService {
 
   getHourlyForecast(): HourWeatherForecast[] {
     return TwelveHourForecast.map(el => ({
-      time: new Date(el.DateTime),
-      icon: el.WeatherIcon,
-      temperature: el.Temperature.Value
+      Time: new Date(el.DateTime),
+      Icon: el.WeatherIcon,
+      Temperature: el.Temperature.Value
     }
     )).slice(0, 5);
   }
 
-  getFiveDayForecast() {
-    console.log(FiveDayForecast);
+  getFiveDayForecast(): DayWeatherForecast[] {
+    return FiveDayForecast.DailyForecasts
+      .map(el => (
+        {
+          Date: new Date(el.Date),
+          Icon: el.Day.Icon,
+          MinTemp: el.Temperature.Minimum.Value,
+          MaxTemp: el.Temperature.Maximum.Value
+        }
+      ));
   }
 
   getSearchAutoCompolete() {
-    console.log(AutoComplete)
+    console.log(AutoComplete);
   }
 }

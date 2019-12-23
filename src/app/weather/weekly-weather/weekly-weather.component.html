@@ -8,43 +8,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row" class="header">Sunday</th>
+    <tr *ngFor="let dayForecast of weekForecast">
+      <th scope="row" class="header">{{ dayForecast.Date | date: 'EEEE' }}</th>
       <td>
-        <img src="../../../assets/images/weather-icons/02-s.png">
+        <img [src]="'assets/images/weather-icons/' + dayForecast.Icon +  '-s.png'">
       </td>
-      <td>20 / 19
+      <td> {{dayForecast.MaxTemp | number:'1.0-0'}}° / {{dayForecast.MinTemp | number:'1.0-0'}}°
       </td>
-
-    </tr>
-    <tr>
-      <th scope="row" class="header">Monday</th>
-      <td>
-        <img src="../../../assets/images/weather-icons/01-s.png">
-      </td>
-      <td>20 / 19</td>
-
-    </tr>
-    <tr>
-      <th scope="row" class="header">Tuesday</th>
-      <td>
-        <img src="../../../assets/images/weather-icons/01-s.png">
-      </td>
-      <td>20 / 19</td>
-    </tr>
-    <tr>
-      <th scope="row" class="header">Wednesday</th>
-      <td>
-        <img src="../../../assets/images/weather-icons/01-s.png">
-      </td>
-      <td>20 / 19</td>
-    </tr>
-    <tr>
-      <th scope="row" class="header">Thuresday</th>
-      <td>
-        <img src="../../../assets/images/weather-icons/01-s.png">
-      </td>
-      <td>20 / 19</td>
     </tr>
 
   </tbody>

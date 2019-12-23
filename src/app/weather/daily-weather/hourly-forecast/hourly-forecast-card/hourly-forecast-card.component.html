@@ -2,6 +2,6 @@
   <div class="card-body py-1 px-0">
     <p class="card-title">{{ time | date: 'HH:mm' }}</p>
     <img class="icon" [src]="'assets/images/weather-icons/'+ icon + '-s.png'">
-    <p class="card-text">{{temp}}</p>
+    <p class="card-text">{{temp | number:'1.0-0'}}°</p>
   </div>
 </div>
