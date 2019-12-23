@@ -1,0 +1,13 @@
+@import '../styles/color-constants';
+
+.brand-icon {
+  color: #F6C400;
+}
+
+nav {
+  z-index: 1;
+}
+
+.bg-dark {
+  background-color: $primary-light !important;
+}

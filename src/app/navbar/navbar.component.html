@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0 pl-3 ">
+  <span class="navbar-brand ">
+    <fa-icon [icon]="icons.brandIcon" class="brand-icon"></fa-icon>
+    Aeric
+  </span>
+  <button class="navbar-toggler m-2" type="button" (click)="isCollapsed = !isCollapsed" aria-controls="navbarContent"
+    [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarContent" [collapse]="isCollapsed" [isAnimated]="true">
+    <ul class="navbar-nav mr-auto ml-lg-5 pr-2 my-md-1">
+      <li class="nav-item">
+        <form class="form-inline flex-nowrap">
+          <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary btn-sm ml-2" type="submit">
+            <fa-icon [icon]="icons.searchIcon"></fa-icon>
+          </button>
+        </form>
+      </li>
+    </ul>
+    <a class="nav-link ml-md-auto pl-0 my-md-1" href="#" tabindex="-1" aria-disabled="true">Favorites</a>
+
+  </div>
+</nav>

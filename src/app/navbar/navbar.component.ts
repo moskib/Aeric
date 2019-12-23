@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faCloudSun, IconDefinition, faSearch } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'navbar',
@@ -6,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
+  isCollapsed = true;
+  icons =
+    {
+      brandIcon: faCloudSun,
+      searchIcon: faSearch
+    }
+
 
   constructor() { }
 

@@ -1,4 +1,10 @@
+@import './app/styles/color-constants';
+
 body,
 html {
   height: 100%;
+}
+
+.btn-primary {
+  background-color: $primary-color;
 }
