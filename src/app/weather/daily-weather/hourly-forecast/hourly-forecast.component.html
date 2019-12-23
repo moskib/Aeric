@@ -1,7 +1,6 @@
-<div class="d-flex justify-content-between" style="color: black;">
-  <hourly-forecast-card [time]="'12:00'" [icon]="faSun" [temp]="'20'"></hourly-forecast-card>
-  <hourly-forecast-card [time]="'12:00'" [icon]="faSun" [temp]="'20'"></hourly-forecast-card>
-  <hourly-forecast-card [time]="'12:00'" [icon]="faSun" [temp]="'20'"></hourly-forecast-card>
-  <hourly-forecast-card [time]="'12:00'" [icon]="faSun" [temp]="'20'"></hourly-forecast-card>
-  <hourly-forecast-card [time]="'12:00'" [icon]="faSun" [temp]="'20'"></hourly-forecast-card>
+<div class="d-flex justify-content-around" style="color: black;">
+  <div *ngFor="let hourlyForecast of hourlyForecasts">
+    <hourly-forecast-card [time]="hourlyForecast.time" [icon]="hourlyForecast.icon" [temp]="hourlyForecast.temperature">
+    </hourly-forecast-card>
+  </div>
 </div>

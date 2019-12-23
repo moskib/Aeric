@@ -10,5 +10,5 @@ export interface DayWeatherForecast {
 export interface HourWeatherForecast {
     time: Date;
     icon: number;
-    temperature;
+    temperature: number;
 }

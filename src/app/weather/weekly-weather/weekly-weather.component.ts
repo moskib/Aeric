@@ -14,7 +14,7 @@ export class WeeklyWeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-    this.weatherService.getHourlyForecast();
+    // this.weatherService.getHourlyForecast();
   }
 
 }
