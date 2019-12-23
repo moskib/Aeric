@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCloudSun, IconDefinition, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCloudSun, faStar, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -13,8 +13,9 @@ export class NavbarComponent implements OnInit {
   icons =
     {
       brandIcon: faCloudSun,
-      searchIcon: faSearch
-    }
+      searchIcon: faSearch,
+      favIcon: faStar
+    };
 
 
   constructor() { }
