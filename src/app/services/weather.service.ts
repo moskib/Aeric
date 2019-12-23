@@ -29,8 +29,4 @@ export class WeatherService {
         }
       ));
   }
-
-  getSearchAutoCompolete() {
-    console.log(AutoComplete);
-  }
 }
