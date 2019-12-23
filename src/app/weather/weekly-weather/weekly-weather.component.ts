@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'aeric-weekly-weather',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./weekly-weather.component.scss']
 })
 export class WeeklyWeatherComponent implements OnInit {
+
+  faCloudSun = faCloudSun;
 
   constructor() { }
 
