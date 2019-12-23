@@ -10,6 +10,8 @@ import { DailyWeatherComponent } from './weather/daily-weather/daily-weather.com
 import { NavbarComponent } from './navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { HourlyForecastComponent } from './weather/daily-weather/hourly-forecast/hourly-forecast.component';
+import { HourlyForecastCardComponent } from './weather/daily-weather/hourly-forecast/hourly-forecast-card/hourly-forecast-card.component';
 
 
 
@@ -21,6 +23,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     WeeklyWeatherComponent,
     DailyWeatherComponent,
     NavbarComponent,
+    HourlyForecastComponent,
+    HourlyForecastCardComponent,
   ],
   imports: [
     BrowserModule,
