@@ -1,5 +1,5 @@
 export interface Location {
-    Key: number;
-    CityName: string,
-    CountryName: string
+    Key: string;
+    CityName: string;
+    CountryName: string;
 }

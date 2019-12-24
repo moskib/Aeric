@@ -18,8 +18,7 @@
     "component-selector": [
       true,
       "element",
-      "app",
-      "kebab-case"
+      "aeric"
     ],
     "import-blacklist": [
       true,

@@ -1,14 +1,39 @@
 import { Injectable } from '@angular/core';
 import { AutoComplete } from './fake-api';
+import { Location } from '../models/location.model';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocationService {
 
-  constructor() { }
+  defaultLocation: Location = {
+    Key: '215854',
+    CityName: 'Tel Aviv',
+    CountryName: 'Israel'
+  };
 
-  getSearchAutoCompolete() {
-    console.log(AutoComplete);
+  currentLocation = new BehaviorSubject<Location>(this.defaultLocation);
+
+
+  constructor() {
+    // check if the local storage is empty.
+    // if so, set default.
+    if (!localStorage.getItem('location')) {
+      localStorage.setItem('location', JSON.stringify(this.defaultLocation));
+    } else {
+      this.currentLocation.next(JSON.parse(localStorage.getItem('location')));
+      console.log(this.currentLocation.getValue());
+
+    }
+  }
+
+  getSearchAutoComplete(): Location[] {
+    return AutoComplete.map(el => ({
+      Key: el.Key,
+      CityName: el.LocalizedName,
+      CountryName: el.Country.LocalizedName
+    }));
   }
 }

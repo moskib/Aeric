@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AutoComplete, TwelveHourForecast, FiveDayForecast } from './fake-api';
 import { DayWeatherForecast, HourWeatherForecast } from 'app/models/weather.model';
+import { FiveDayForecast, TwelveHourForecast } from './fake-api';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class WeatherService {
       Icon: el.WeatherIcon,
       Temperature: el.Temperature.Value
     }
-    )).slice(0, 5);
+    )).slice(0, 5); // only take the first 5
   }
 
   getFiveDayForecast(): DayWeatherForecast[] {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faCloudSun, faStar, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { LocationService } from 'app/services/location.service';
 
 
 @Component({
@@ -18,9 +19,10 @@ export class NavbarComponent implements OnInit {
     };
 
 
-  constructor() { }
+  constructor(private locationService: LocationService) { }
 
   ngOnInit() {
+    console.log(this.locationService.getSearchAutoComplete());
   }
 
 }

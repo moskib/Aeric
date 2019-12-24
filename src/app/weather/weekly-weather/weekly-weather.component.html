@@ -1,4 +1,5 @@
-<h5 class="my-5 header">"Location" <strong>Forecast</strong></h5>
+<h5 *ngIf="($currentLocation | async)?.CityName as City" class="my-5 header"> {{ City }}'s <strong>Forecast</strong>
+</h5>
 <table class="table">
   <thead>
     <tr>
