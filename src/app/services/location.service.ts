@@ -36,4 +36,9 @@ export class LocationService {
     }));
   }
 
+  setCurrentLocation(location: Location) {
+    this.currentLocation.next(location);
+    localStorage.setItem('location', JSON.stringify(location));
+  }
+
 }

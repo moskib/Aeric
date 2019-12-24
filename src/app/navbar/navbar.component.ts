@@ -12,7 +12,9 @@ import { Location } from 'app/models/location.model';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  selected: string;
   cityNames: Location[] = [];
+  selectedLocation: Location;
   btnDisabled = true;
   isCollapsed = true;
   icons =
@@ -27,8 +29,17 @@ export class NavbarComponent implements OnInit {
     this.cityNames = locationService.getSearchAutoComplete();
   }
 
-
-
   ngOnInit() {
+  }
+
+  typeaheadOnSelect(e: TypeaheadMatch): void {
+    this.selectedLocation = e.item as Location;
+    this.btnDisabled = false;
+  }
+
+  onSearchClicked() {
+    this.locationService.setCurrentLocation(this.selectedLocation);
+    this.btnDisabled = true;
+    this.selected = '';
   }
 }
