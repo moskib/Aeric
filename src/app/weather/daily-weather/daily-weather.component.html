@@ -8,7 +8,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <h1 class="display-1">28°</h1>
+      <h1 *ngIf="($currentWeather | async)[0]?.Temperature as temp" class="display-1">{{ temp | number: '1.0-0' }}°</h1>
     </div>
   </div>
   <div class="row">
