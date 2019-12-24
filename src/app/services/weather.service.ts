@@ -1,13 +1,12 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {
   DayWeatherForecast,
   HourWeatherForecast
 } from "app/models/weather.model";
-import { FiveDayForecast, TwelveHourForecast } from "./fake-api";
-import { BehaviorSubject, Observable } from "rxjs";
-import { map, take } from "rxjs/operators";
 import { environment } from "environments/environment";
-import { HttpClient } from "@angular/common/http";
+import { BehaviorSubject, Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { LocationService } from "./location.service";
 
 @Injectable({
@@ -44,6 +43,8 @@ export class WeatherService {
       (locationKey || this.locationService.currentLocation.getValue().Key) +
       `?apikey=${this.apiKey}&metric=true`;
 
+    return this.fiveHourForecast;
+
     return this.http.get(url).pipe(
       map((res: any) => {
         const result = res
@@ -66,6 +67,8 @@ export class WeatherService {
       (locationKey || this.locationService.currentLocation.getValue().Key) +
       `?apikey=${this.apiKey}&metric=true`;
 
+    return this.weekForecast;
+
     return this.http.get(url).pipe(
       map((res: any) => {
         const result = res.DailyForecasts.map((el: any) => ({
@@ -78,17 +81,5 @@ export class WeatherService {
         return result;
       })
     );
-
-    // const fiveDayForecast: DayWeatherForecast[] = FiveDayForecast.DailyForecasts.map(
-    //   el => ({
-    //     Date: new Date(el.Date),
-    //     Icon: el.Day.Icon,
-    //     MinTemp: el.Temperature.Minimum.Value,
-    //     MaxTemp: el.Temperature.Maximum.Value
-    //   })
-    // );
-
-    // this.weekForecast.next(fiveDayForecast);
-    // return fiveDayForecast;
   }
 }
