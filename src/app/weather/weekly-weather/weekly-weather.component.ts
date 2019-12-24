@@ -12,10 +12,6 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class WeeklyWeatherComponent implements OnInit {
 
-  faCloudSun = faCloudSun;
-
-  weekForecast: DayWeatherForecast[];
-
   constructor(
     private locationService: LocationService,
     private weatherService: WeatherService
@@ -25,9 +21,11 @@ export class WeeklyWeatherComponent implements OnInit {
     return this.locationService.currentLocation.asObservable();
   }
 
+  get $currentWeeksWeather() {
+    return this.weatherService.weekForecast;
+  }
+
   ngOnInit() {
-    // this.weatherService.getHourlyForecast();
-    this.weekForecast = this.weatherService.getFiveDayForecast();
   }
 
 }

@@ -20,6 +20,7 @@ export class LocationService {
   constructor() {
     // check if the local storage is empty.
     // if so, set default.
+    // Otherwize, set the Behavior subject used throughout the project.
     if (!localStorage.getItem('location')) {
       localStorage.setItem('location', JSON.stringify(this.defaultLocation));
     } else {

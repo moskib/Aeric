@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let dayForecast of weekForecast">
+    <tr *ngFor="let dayForecast of ($currentWeeksWeather | async)">
       <th scope="row" class="header">{{ dayForecast.Date | date: 'EEEE' }}</th>
       <td>
         <img [src]="'assets/images/weather-icons/' + dayForecast.Icon +  '-s.png'">
