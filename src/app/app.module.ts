@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { HttpClientModule } from '@angular/common/http';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     HourlyForecastComponent,
     HourlyForecastCardComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,
