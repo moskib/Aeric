@@ -8,6 +8,7 @@ import { LocationService } from "app/services/location.service";
 import { TypeaheadMatch } from "ngx-bootstrap/typeahead/public_api";
 import { Observable } from "rxjs";
 import { Location } from "app/models/location.model";
+import { WeatherService } from "app/services/weather.service";
 
 @Component({
   selector: "navbar",
@@ -26,7 +27,10 @@ export class NavbarComponent implements OnInit {
     favIcon: faStar
   };
 
-  constructor(private locationService: LocationService) {}
+  constructor(
+    private locationService: LocationService,
+    private weatherService: WeatherService
+  ) {}
 
   ngOnInit() {}
 
@@ -37,13 +41,14 @@ export class NavbarComponent implements OnInit {
 
   onSearchClicked() {
     this.locationService.setCurrentLocation(this.selectedLocation);
+    this.weatherService.getFiveDayForecast().subscribe();
+    this.weatherService.getHourlyForecast().subscribe();
     this.btnDisabled = true;
     this.selected = "";
   }
 
   onChange(event: InputEvent) {
     if (this.selected.length > 3) {
-      console.log("here");
       this.$cityNames = this.locationService.getSearchAutoComplete(
         this.selected
       );

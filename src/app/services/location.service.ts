@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { environment } from "environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
+import { WeatherService } from "./weather.service";
 
 @Injectable({
   providedIn: "root"
@@ -41,13 +42,6 @@ export class LocationService {
   }
 
   getSearchAutoComplete(searchTerm: string): Observable<Location[]> {
-    // console.log(
-    //   this.baseUrl +
-    //     "locations/v1/cities/autocomplete?apiKey=" +
-    //     this.apiKey +
-    //     "&q=" +
-    //     searchTerm
-    // );
     return this.http
       .get(
         this.baseUrl +
