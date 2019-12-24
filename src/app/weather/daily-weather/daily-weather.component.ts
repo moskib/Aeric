@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationService } from 'app/services/location.service';
+import { BehaviorSubject } from 'rxjs';
+import { Location } from 'app/models/location.model';
 
 @Component({
   selector: 'aeric-daily-weather',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DailyWeatherComponent implements OnInit {
 
-  constructor() { }
+  constructor(private locationService: LocationService) { }
 
   ngOnInit() {
+  }
+
+  get $currentLocation(): BehaviorSubject<Location> {
+    return this.locationService.currentLocation;
   }
 
 }

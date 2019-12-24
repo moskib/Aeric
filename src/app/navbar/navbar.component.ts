@@ -19,10 +19,9 @@ export class NavbarComponent implements OnInit {
     };
 
 
-  constructor(private locationService: LocationService) { }
+  constructor() { }
 
   ngOnInit() {
-    console.log(this.locationService.getSearchAutoComplete());
   }
 
 }

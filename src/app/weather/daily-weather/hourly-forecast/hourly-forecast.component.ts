@@ -16,8 +16,11 @@ export class HourlyForecastComponent implements OnInit {
 
   constructor(private weatherService: WeatherService) { }
 
+  get $hourlyForecasts() {
+    return this.weatherService.fiveHourForecast;
+  }
+
   ngOnInit() {
-    this.hourlyForecasts = this.weatherService.getHourlyForecast();
   }
 
 }

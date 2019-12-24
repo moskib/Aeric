@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class LocationService {
 
-  defaultLocation: Location = {
+  private defaultLocation: Location = {
     Key: '215854',
     CityName: 'Tel Aviv',
     CountryName: 'Israel'
@@ -24,8 +24,6 @@ export class LocationService {
       localStorage.setItem('location', JSON.stringify(this.defaultLocation));
     } else {
       this.currentLocation.next(JSON.parse(localStorage.getItem('location')));
-      console.log(this.currentLocation.getValue());
-
     }
   }
 

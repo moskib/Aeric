@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-around" style="color: black;">
-  <div *ngFor="let hourlyForecast of hourlyForecasts">
+  <div *ngFor="let hourlyForecast of ($hourlyForecasts| async)">
     <hourly-forecast-card [time]="hourlyForecast.Time" [icon]="hourlyForecast.Icon" [temp]="hourlyForecast.Temperature">
     </hourly-forecast-card>
   </div>

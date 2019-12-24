@@ -12,8 +12,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      <h4>Tel Aviv, Israel</h4>
+    <div class="col" *ngIf="($currentLocation | async) as location">
+      <h4>{{ location.CityName }}, {{ location.CountryName }}</h4>
     </div>
   </div>
   <div class="row">
