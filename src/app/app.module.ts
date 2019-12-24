@@ -11,6 +11,9 @@ import { HourlyForecastCardComponent } from './weather/daily-weather/hourly-fore
 import { HourlyForecastComponent } from './weather/daily-weather/hourly-forecast/hourly-forecast.component';
 import { WeatherComponent } from './weather/weather.component';
 import { WeeklyWeatherComponent } from './weather/weekly-weather/weekly-weather.component';
+import { FormsModule } from '@angular/forms';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 
 
@@ -31,7 +34,10 @@ import { WeeklyWeatherComponent } from './weather/weekly-weather/weekly-weather.
     AppRoutingModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    CollapseModule
+    CollapseModule,
+    FormsModule,
+    TypeaheadModule.forRoot(),
+    ButtonsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

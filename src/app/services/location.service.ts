@@ -35,4 +35,5 @@ export class LocationService {
       CountryName: el.Country.LocalizedName
     }));
   }
+
 }
