@@ -14,9 +14,7 @@ import { WeeklyWeatherComponent } from './weather/weekly-weather/weekly-weather.
 import { FormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -31,6 +29,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
