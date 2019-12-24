@@ -3,19 +3,46 @@
     <fa-icon [icon]="icons.brandIcon" class="brand-icon"></fa-icon>
     Aeric
   </span>
-  <button class="navbar-toggler m-2" type="button" (click)="isCollapsed = !isCollapsed" aria-controls="navbarContent"
-    [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation">
+  <button
+    class="navbar-toggler m-2"
+    type="button"
+    (click)="isCollapsed = !isCollapsed"
+    aria-controls="navbarContent"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarContent" [collapse]="isCollapsed" [isAnimated]="true">
+  <div
+    class="collapse navbar-collapse"
+    id="navbarContent"
+    [collapse]="isCollapsed"
+    [isAnimated]="true"
+  >
     <ul class="navbar-nav mr-auto ml-lg-5 pr-2 my-md-1">
       <li class="nav-item">
         <form class="form-inline flex-nowrap">
-          <input [(ngModel)]="selected" [typeahead]="cityNames" [isAnimated]="true" typeaheadOptionField="CityName"
-            (typeaheadOnSelect)="typeaheadOnSelect($event)" class="form-control form-control-sm" type="search"
-            placeholder="Search" aria-label="Search" name="searchField">
-          <button class="btn btn-primary btn-sm ml-2" type="submit" [disabled]="btnDisabled"
-            (click)="onSearchClicked()">
+          <input
+            [(ngModel)]="selected"
+            [typeaheadAsync]="true"
+            [typeahead]="$cityNames"
+            [isAnimated]="true"
+            typeaheadOptionField="CityName"
+            (typeaheadOnSelect)="typeaheadOnSelect($event)"
+            class="form-control form-control-sm"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            name="searchField"
+            (input)="onChange($event)"
+            autocomplete="off"
+          />
+          <button
+            class="btn btn-primary btn-sm ml-2"
+            type="submit"
+            [disabled]="btnDisabled"
+            (click)="onSearchClicked()"
+          >
             <fa-icon [icon]="icons.searchIcon"></fa-icon>
           </button>
         </form>
