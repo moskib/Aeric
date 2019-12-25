@@ -43,7 +43,7 @@ export class WeatherService {
       (locationKey || this.locationService.currentLocation.getValue().Key) +
       `?apikey=${this.apiKey}&metric=true`;
 
-    return this.fiveHourForecast;
+    // return this.fiveHourForecast;
 
     return this.http.get(url).pipe(
       map((res: any) => {
@@ -67,7 +67,7 @@ export class WeatherService {
       (locationKey || this.locationService.currentLocation.getValue().Key) +
       `?apikey=${this.apiKey}&metric=true`;
 
-    return this.weekForecast;
+    // return this.weekForecast;
 
     return this.http.get(url).pipe(
       map((res: any) => {
@@ -81,5 +81,10 @@ export class WeatherService {
         return result;
       })
     );
+  }
+
+  getWeather() {
+    this.getFiveDayForecast().subscribe();
+    this.getHourlyForecast().subscribe();
   }
 }

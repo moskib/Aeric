@@ -1,18 +1,18 @@
-import { Component, OnInit } from "@angular/core";
-import { LocationService } from "app/services/location.service";
-import { BehaviorSubject } from "rxjs";
+import { Component } from "@angular/core";
 import { Location } from "app/models/location.model";
-import { WeatherService } from "app/services/weather.service";
+import { HourWeatherForecast } from "app/models/weather.model";
 import { FavoritesService } from "app/services/favorites.service";
+import { LocationService } from "app/services/location.service";
+import { WeatherService } from "app/services/weather.service";
+import { BehaviorSubject, combineLatest, Observable } from "rxjs";
 
 @Component({
   selector: "aeric-daily-weather",
   templateUrl: "./daily-weather.component.html",
   styleUrls: ["./daily-weather.component.scss"]
 })
-export class DailyWeatherComponent implements OnInit {
+export class DailyWeatherComponent {
   cannotAddToFavorites = false;
-  currentLocation: Location = null;
 
   constructor(
     private locationService: LocationService,
@@ -20,16 +20,21 @@ export class DailyWeatherComponent implements OnInit {
     private favoritesService: FavoritesService
   ) {}
 
-  ngOnInit() {
-    this.currentLocation = this.locationService.currentLocation.getValue();
-    const favorites: Location[] = this.favoritesService.favorites.getValue();
-
-    this.cannotAddToFavorites =
-      favorites.length > 5 ||
-      !!favorites.find(e => e.Key === this.currentLocation.Key);
+  get $cannotAddToFavorites(): Observable<boolean> {
+    return combineLatest(
+      this.favoritesService.favorites,
+      this.locationService.currentLocation,
+      (favorites, currentLocation) =>
+        favorites.length > 5 ||
+        !!favorites.find(e => e.Key === currentLocation.Key)
+    );
   }
 
-  get $currentWeather() {
+  get $favorites(): Observable<Location[]> {
+    return this.favoritesService.favorites;
+  }
+
+  get $currentWeather(): Observable<HourWeatherForecast[]> {
     return this.weatherService.fiveHourForecast;
   }
 
@@ -38,7 +43,7 @@ export class DailyWeatherComponent implements OnInit {
   }
 
   saveLocationToFavorites(): void {
-    this.favoritesService.saveFavorite(this.currentLocation);
+    this.favoritesService.saveFavorite(this.$currentLocation.value);
     this.cannotAddToFavorites = true;
   }
 }

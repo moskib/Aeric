@@ -34,9 +34,13 @@
       <button
         class="btn btn-light"
         (click)="saveLocationToFavorites()"
-        [disabled]="cannotAddToFavorites"
+        [disabled]="$cannotAddToFavorites | async"
       >
-        Save to favorites
+        {{
+          ($cannotAddToFavorites | async)
+            ? "Location in favorites"
+            : "Save to favorites"
+        }}
       </button>
     </div>
   </div>
