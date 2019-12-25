@@ -25,7 +25,7 @@ export class DailyWeatherComponent {
       this.favoritesService.favorites,
       this.locationService.currentLocation,
       (favorites, currentLocation) =>
-        favorites.length > 5 ||
+        favorites.length >= 5 ||
         !!favorites.find(e => e.Key === currentLocation.Key)
     );
   }
