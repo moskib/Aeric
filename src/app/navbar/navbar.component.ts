@@ -47,7 +47,7 @@ export class NavbarComponent implements OnInit {
     this.selected = "";
   }
 
-  onChange(event: InputEvent) {
+  onChange(event) {
     if (this.selected.length > 3) {
       this.$cityNames = this.locationService.getSearchAutoComplete(
         this.selected

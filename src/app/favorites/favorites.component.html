@@ -1,1 +1,32 @@
-<p>favorites works!</p>
+<div class="container-fluid favorites-container h-100 w-100">
+  <div class="row">
+    <div class="col py-5">
+      <h1 class="display-4 pl-4 font-weight-light">Your favorites</h1>
+    </div>
+  </div>
+  <table
+    class="table table-light"
+    *ngIf="favorites.length !== 0; else noFavorites"
+  >
+    <thead>
+      <tr>
+        <th scope="col">Location</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let location of favorites">
+        <th>{{ location.CityName }}, {{ location.CountryName }}</th>
+        <td><button class="btn btn-primary">View Forecast</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noFavorites>
+    <div class="row">
+      <div class="col">
+        <h1 class="pl-4">You do not have any favorites!</h1>
+      </div>
+    </div>
+  </ng-template>
+</div>

@@ -1,11 +1,10 @@
-import { Injectable } from "@angular/core";
-import { AutoComplete } from "./fake-api";
-import { Location } from "../models/location.model";
-import { BehaviorSubject, Observable } from "rxjs";
-import { environment } from "environments/environment";
 import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { environment } from "environments/environment";
+import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { WeatherService } from "./weather.service";
+import { Location } from "../models/location.model";
+import { AutoComplete } from "./fake-api";
 
 @Injectable({
   providedIn: "root"

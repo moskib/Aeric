@@ -1,5 +1,4 @@
-@import './styles/color-constants';
-
+@import "./styles/color-constants";
 
 body,
 html {
@@ -17,7 +16,8 @@ html {
   border-color: rgb(116, 114, 146);
 }
 
-.btn-primary.disabled, .btn-primary:disabled {
+.btn-primary.disabled,
+.btn-primary:disabled {
   background-color: rgb(174, 171, 219);
   border-color: rgb(174, 171, 219);
 }

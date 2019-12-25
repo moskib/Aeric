@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Location } from "../models/location.model";
 
 @Component({
-  selector: 'aeric-favorites',
-  templateUrl: './favorites.component.html',
-  styleUrls: ['./favorites.component.scss']
+  selector: "aeric-favorites",
+  templateUrl: "./favorites.component.html",
+  styleUrls: ["./favorites.component.scss"]
 })
 export class FavoritesComponent implements OnInit {
+  // favorites: Location[] = [];
 
-  constructor() { }
+  favorites: Location[] = [
+    { Key: "55489", CityName: "London", CountryName: "Ontario" }
+  ];
 
-  ngOnInit() {
-  }
+  constructor() {}
 
+  ngOnInit() {}
 }

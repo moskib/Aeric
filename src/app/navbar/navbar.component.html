@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0 pl-3 ">
-  <span class="navbar-brand ">
+  <a class="navbar-brand " routerLink="/">
     <fa-icon [icon]="icons.brandIcon" class="brand-icon"></fa-icon>
     Aeric
-  </span>
+  </a>
   <button
     class="navbar-toggler m-2"
     type="button"
@@ -48,9 +48,9 @@
         </form>
       </li>
     </ul>
-    <span class="nav-link ml-md-auto pl-0 my-md-1">
+    <a class="nav-link ml-md-auto pl-0 my-md-1" routerLink="/favorites">
       <fa-icon [icon]="icons.favIcon" class="fav-icon"></fa-icon>
       Favorites
-    </span>
+    </a>
   </div>
 </nav>
