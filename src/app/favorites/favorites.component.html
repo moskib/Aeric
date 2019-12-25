@@ -17,7 +17,11 @@
     <tbody>
       <tr *ngFor="let location of favorites">
         <th>{{ location.CityName }}, {{ location.CountryName }}</th>
-        <td><button class="btn btn-primary">View Forecast</button></td>
+        <td>
+          <button class="btn btn-primary" (click)="onViewLocation(location)">
+            View Forecast
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
