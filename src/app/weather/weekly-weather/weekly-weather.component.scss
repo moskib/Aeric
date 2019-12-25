@@ -1,3 +1,5 @@
+@import "src/styles/animations";
+
 .table td,
 .table th {
   border-top: none;
@@ -8,9 +10,9 @@
 }
 
 thead {
-  color: #BFC7D0;
+  color: #bfc7d0;
 }
 
 .header {
-  color: #202B5C
+  color: #202b5c;
 }

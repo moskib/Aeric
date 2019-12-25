@@ -1,0 +1,44 @@
+.fade-slide-in-top {
+  position: relative;
+  top: -100px;
+  opacity: 0;
+  -webkit-animation: fade-slide-in-top 1s forwards;
+  animation: fadeSlideIfade-slide-in-top nTop 1s forwards;
+}
+
+@keyframes fade-slide-in-top {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.fade-slide-in-right {
+  position: relative;
+  right: -100px;
+  opacity: 0;
+  -webkit-animation: fade-slide-in-right 1s forwards;
+  animation: fade-slide-in-right 1s forwards;
+}
+
+@keyframes fade-slide-in-right {
+  100% {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+.fade-slide-in-left {
+  position: relative;
+  left: -100px;
+  opacity: 0;
+  -webkit-animation: fade-slide-in-left 1s forwards;
+  animation: fade-slide-in-left 1s forwards;
+}
+
+@keyframes fade-slide-in-left {
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}

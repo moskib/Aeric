@@ -1,21 +1,30 @@
-<h5 *ngIf="($currentLocation | async)?.CityName as City" class="my-5 header"> {{ City }}'s <strong>Forecast</strong>
-</h5>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col" class="header">Day</th>
-      <th scope="col">Weather</th>
-      <th scope="col">High / Low</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let dayForecast of ($currentWeeksWeather | async)">
-      <th scope="row" class="header">{{ dayForecast.Date | date: 'EEEE' }}</th>
-      <td>
-        <img [src]="'assets/images/weather-icons/' + dayForecast.Icon +  '-s.png'">
-      </td>
-      <td> {{dayForecast.MaxTemp | number:'1.0-0'}}° / {{dayForecast.MinTemp | number:'1.0-0'}}°
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="fade-slide-in-left">
+  <h5 *ngIf="($currentLocation | async)?.CityName as City" class="my-5 header">
+    {{ City }}'s <strong>Forecast</strong>
+  </h5>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="header">Day</th>
+        <th scope="col">Weather</th>
+        <th scope="col">High / Low</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dayForecast of $currentWeeksWeather | async">
+        <th scope="row" class="header">
+          {{ dayForecast.Date | date: "EEEE" }}
+        </th>
+        <td>
+          <img
+            [src]="'assets/images/weather-icons/' + dayForecast.Icon + '-s.png'"
+          />
+        </td>
+        <td>
+          {{ dayForecast.MaxTemp | number: "1.0-0" }}° /
+          {{ dayForecast.MinTemp | number: "1.0-0" }}°
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
