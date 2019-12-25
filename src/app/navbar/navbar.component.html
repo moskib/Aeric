@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0 pl-3 ">
-  <a class="navbar-brand " routerLink="/">
+  <a class="navbar-brand " routerLink="/" (click)="isCollapsed = true">
     <fa-icon [icon]="icons.brandIcon" class="brand-icon"></fa-icon>
     Aeric
   </a>
@@ -48,7 +48,11 @@
         </form>
       </li>
     </ul>
-    <a class="nav-link ml-md-auto pl-0 my-md-1" routerLink="/favorites">
+    <a
+      class="nav-link ml-md-auto pl-0 my-md-1"
+      routerLink="/favorites"
+      (click)="isCollapsed = true"
+    >
       <fa-icon [icon]="icons.favIcon" class="fav-icon"></fa-icon>
       Favorites
     </a>
