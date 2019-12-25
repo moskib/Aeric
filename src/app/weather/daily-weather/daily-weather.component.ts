@@ -3,6 +3,7 @@ import { LocationService } from "app/services/location.service";
 import { BehaviorSubject } from "rxjs";
 import { Location } from "app/models/location.model";
 import { WeatherService } from "app/services/weather.service";
+import { FavoritesService } from "app/services/favorites.service";
 
 @Component({
   selector: "aeric-daily-weather",
@@ -10,13 +11,22 @@ import { WeatherService } from "app/services/weather.service";
   styleUrls: ["./daily-weather.component.scss"]
 })
 export class DailyWeatherComponent implements OnInit {
+  cannotAddToFavorites = false;
+  currentLocation: Location = null;
+
   constructor(
     private locationService: LocationService,
-    private weatherService: WeatherService
+    private weatherService: WeatherService,
+    private favoritesService: FavoritesService
   ) {}
 
   ngOnInit() {
-    // this.weatherService.getHourlyForecast().subscribe(res => console.log(res));
+    this.currentLocation = this.locationService.currentLocation.getValue();
+    const favorites: Location[] = this.favoritesService.favorites.getValue();
+
+    this.cannotAddToFavorites =
+      favorites.length > 5 ||
+      !!favorites.find(e => e.Key === this.currentLocation.Key);
   }
 
   get $currentWeather() {
@@ -25,5 +35,10 @@ export class DailyWeatherComponent implements OnInit {
 
   get $currentLocation(): BehaviorSubject<Location> {
     return this.locationService.currentLocation;
+  }
+
+  saveLocationToFavorites(): void {
+    this.favoritesService.saveFavorite(this.currentLocation);
+    this.cannotAddToFavorites = true;
   }
 }

@@ -8,11 +8,16 @@
   </div>
   <div class="row">
     <div class="col">
-      <h1 *ngIf="($currentWeather | async)[0]?.Temperature as temp" class="display-1">{{ temp | number: '1.0-0' }}°</h1>
+      <h1
+        *ngIf="($currentWeather | async)[0]?.Temperature as temp"
+        class="display-1"
+      >
+        {{ temp | number: "1.0-0" }}°
+      </h1>
     </div>
   </div>
   <div class="row">
-    <div class="col" *ngIf="($currentLocation | async) as location">
+    <div class="col" *ngIf="$currentLocation | async as location">
       <h4>{{ location.CityName }}, {{ location.CountryName }}</h4>
     </div>
   </div>
@@ -26,7 +31,13 @@
   </div>
   <div class="row">
     <div class="col py-3">
-      <button class="btn btn-light">Save to favorites</button>
+      <button
+        class="btn btn-light"
+        (click)="saveLocationToFavorites()"
+        [disabled]="cannotAddToFavorites"
+      >
+        Save to favorites
+      </button>
     </div>
   </div>
 </div>

@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Location } from "../models/location.model";
 import { Router } from "@angular/router";
 import { LocationService } from "app/services/location.service";
+import { FavoritesService } from "app/services/favorites.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "aeric-favorites",
@@ -9,16 +11,15 @@ import { LocationService } from "app/services/location.service";
   styleUrls: ["./favorites.component.scss"]
 })
 export class FavoritesComponent implements OnInit {
-  // favorites: Location[] = [];
-
-  favorites: Location[] = [
-    { Key: "55489", CityName: "London", CountryName: "Ontario" }
-  ];
-
   constructor(
     private router: Router,
-    private locationService: LocationService
+    private locationService: LocationService,
+    private favoritesService: FavoritesService
   ) {}
+
+  get favorites(): Observable<Location[]> {
+    return this.favoritesService.favorites;
+  }
 
   ngOnInit() {}
 

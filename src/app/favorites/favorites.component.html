@@ -6,7 +6,7 @@
   </div>
   <table
     class="table table-light"
-    *ngIf="favorites.length !== 0; else noFavorites"
+    *ngIf="(favorites | async)?.length !== 0; else noFavorites"
   >
     <thead>
       <tr>
