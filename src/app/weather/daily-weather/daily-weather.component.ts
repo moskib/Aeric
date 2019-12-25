@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
-import { Location } from "app/models/location.model";
-import { HourWeatherForecast } from "app/models/weather.model";
-import { FavoritesService } from "app/services/favorites.service";
-import { LocationService } from "app/services/location.service";
-import { WeatherService } from "app/services/weather.service";
+import { Location } from "app/shared/models/location.model";
+import { HourWeatherForecast } from "app/shared/models/weather.model";
+import { FavoritesService } from "app/shared/services/favorites.service";
+import { LocationService } from "app/shared/services/location.service";
+import { WeatherService } from "app/shared/services/weather.service";
 import { BehaviorSubject, combineLatest, Observable } from "rxjs";
 
 @Component({

@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { Location } from "../models/location.model";
+import { Location } from "../shared/models/location.model";
 import { Router } from "@angular/router";
-import { LocationService } from "app/services/location.service";
-import { FavoritesService } from "app/services/favorites.service";
+import { LocationService } from "app/shared/services/location.service";
+import { FavoritesService } from "app/shared/services/favorites.service";
 import { Observable } from "rxjs";
-import { WeatherService } from "app/services/weather.service";
+import { WeatherService } from "app/shared/services/weather.service";
 
 @Component({
   selector: "aeric-favorites",

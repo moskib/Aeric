@@ -1,22 +1,19 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { DailyWeatherComponent } from './weather/daily-weather/daily-weather.component';
-import { HourlyForecastCardComponent } from './weather/daily-weather/hourly-forecast/hourly-forecast-card/hourly-forecast-card.component';
-import { HourlyForecastComponent } from './weather/daily-weather/hourly-forecast/hourly-forecast.component';
-import { WeatherComponent } from './weather/weather.component';
-import { WeeklyWeatherComponent } from './weather/weekly-weather/weekly-weather.component';
-import { FormsModule } from '@angular/forms';
-import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
-import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import { HttpClientModule } from '@angular/common/http';
-import { FavoritesComponent } from './favorites/favorites.component';
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ButtonsModule } from "ngx-bootstrap/buttons";
 
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { FavoritesComponent } from "./favorites/favorites.component";
+import { SharedModule } from "./shared/shared.module";
+import { DailyWeatherComponent } from "./weather/daily-weather/daily-weather.component";
+import { HourlyForecastCardComponent } from "./weather/daily-weather/hourly-forecast/hourly-forecast-card/hourly-forecast-card.component";
+import { HourlyForecastComponent } from "./weather/daily-weather/hourly-forecast/hourly-forecast.component";
+import { WeatherComponent } from "./weather/weather.component";
+import { WeeklyWeatherComponent } from "./weather/weekly-weather/weekly-weather.component";
 
 @NgModule({
   declarations: [
@@ -24,23 +21,20 @@ import { FavoritesComponent } from './favorites/favorites.component';
     WeatherComponent,
     WeeklyWeatherComponent,
     DailyWeatherComponent,
-    NavbarComponent,
     HourlyForecastComponent,
     HourlyForecastCardComponent,
-    FavoritesComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FontAwesomeModule,
-    CollapseModule,
     FormsModule,
-    TypeaheadModule.forRoot(),
     ButtonsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

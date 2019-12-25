@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { LocationService } from "app/services/location.service";
-import { WeatherService } from "app/services/weather.service";
+import { LocationService } from "app/shared/services/location.service";
+import { WeatherService } from "app/shared/services/weather.service";
 
 @Component({
   selector: "aeric-weekly-weather",

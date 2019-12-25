@@ -4,11 +4,11 @@ import {
   faStar,
   faSearch
 } from "@fortawesome/free-solid-svg-icons";
-import { LocationService } from "app/services/location.service";
+import { LocationService } from "app/shared/services/location.service";
 import { TypeaheadMatch } from "ngx-bootstrap/typeahead/public_api";
 import { Observable } from "rxjs";
-import { Location } from "app/models/location.model";
-import { WeatherService } from "app/services/weather.service";
+import { Location } from "app/shared/models/location.model";
+import { WeatherService } from "app/shared/services/weather.service";
 
 @Component({
   selector: "navbar",
